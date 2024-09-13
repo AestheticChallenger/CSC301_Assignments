@@ -48,7 +48,9 @@ public class BudgetMaster {
 		// To be completed. Feel free to change the input parameters. 
 	}
 
+	// Mehejat's Part!!
 	public static void UpdateTransaction(){
+		
 		// To be completed. Feel free to change the input parameters.  
 	}
 
@@ -59,8 +61,10 @@ public class BudgetMaster {
 	public static void TrackProgress(){
 		// To be completed. Feel free to change the input parameters. 
 	}
-	
+
+	// Mehejat's Part!!
 	public static void GenerateFinancialReports(){
+		
 		// To be completed. Feel free to change the input parameters. 
 	}
 
