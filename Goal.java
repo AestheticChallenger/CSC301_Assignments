@@ -1,7 +1,3 @@
-public class Goal {
-  public static void main(String[] args) {
-    
-
-  }
+public abstract class Goal {
    
 }
