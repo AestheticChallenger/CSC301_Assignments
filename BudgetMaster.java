@@ -3,10 +3,22 @@ import java.util.Scanner;
 
 public class BudgetMaster {
 	static Scanner input = new Scanner(System.in);
-	static ArrayList<ArrayList<Object>> transactionList = new ArrayList<>();
+	static ArrayList<ArrayList<Transaction>> transactionList = new ArrayList<>();
 
-	public static void main(String[] args) {
+	// Array of created accounts of the user
+	static Account[] userAccounts = new Account[3];
 
+	public static void main(String[] args) throws Exception{
+		
+		java.io.File file = new java.io.File("txtFiles/f.txt");
+		
+		// creates the file
+		if (file.createNewFile()) {
+		System.out.println("File created: " + file.getName());
+		}
+		
+		
+		
 		int userChoice;
 		do {
 			DislayMenu();
@@ -61,7 +73,7 @@ public class BudgetMaster {
 		return choice;
 	}
 
-	public static void LogNewTransaction() {
+	public static void LogNewTransaction() throws Exception {
 		// To be completed. Feel free to change the input parameters.
 
 		boolean setLoopCondition = true;
@@ -73,25 +85,26 @@ public class BudgetMaster {
 		while (setLoopCondition) {
 			try {
 				selectedAccount = chooseAccount();
+				
+				switch (selectedAccount) {
+					case "currentAccount":
+						CurrentAccount.main(null);
+						break;
 
-				System.out.println("Enter the amount: ");
-				double amount = input.nextDouble();
+					case "savingAccount":
+						SavingsAccount.main(null);
+						break;
 
-				// Check if the amount is positive
-				if (amount <= 0) {
-					throw new LessThanZeroAmountFoundException();
+					case "investmentAccount":
+						InvestmentAccount.main(null);
+						break;
 				}
-
-				System.out.println("Enter the type of transaction: \n1.  ");
 
 				// Catches if the user inputed incorrect options
 			} catch (InvalidOptionSelectedException ex) {
 				System.out.println(ex.getMessage());
 
 				// Catches if the amount is positive
-			} catch (LessThanZeroAmountFoundException m) {
-				System.out.println(m.getMessage());
-
 			}
 
 		}
@@ -104,10 +117,12 @@ public class BudgetMaster {
 		// To be completed. Feel free to change the input parameters.
 	}
 
+	// Afrah's Part!!
 	public static void SetUpdateBudgetLimits() {
 		// To be completed. Feel free to change the input parameters.
 	}
 
+	// Afrah's Part!!
 	public static void TrackProgress() {
 		// To be completed. Feel free to change the input parameters.
 	}
@@ -118,6 +133,7 @@ public class BudgetMaster {
 		// To be completed. Feel free to change the input parameters.
 	}
 
+	// Aysha's Part!!
 	public static void NewExtraFunctionality() {
 		// To be completed. Feel free to change the input parameters.
 	}
@@ -129,17 +145,17 @@ public class BudgetMaster {
 		switch (userInput) {
 			case '1':
 			case 'C':
-				choosenAccount = "Current Account";
+				choosenAccount = "CurrentAccount";
 				break;
 
 			case '2':
 			case 'S':
-				choosenAccount = "Savings Account";
+				choosenAccount = "SavingsAccount";
 				break;
 
 			case '3':
 			case 'I':
-				choosenAccount = "Investment Account";
+				choosenAccount = "InvestmentAccount";
 				break;
 
 			default:
@@ -149,19 +165,20 @@ public class BudgetMaster {
 		return choosenAccount;
 	}
 
-	// Searches and displays record(s) in an arrayList that contains a specific
-	// word/ object
-	// Put try and catch here!!!!!!!!!
-	public static void printRows(int index, Object itemToSearch) {
-		for (ArrayList<Object> row : transactionList) {
-			if (row.get(index) == itemToSearch) {
-				System.out.println(row);
+	/** Searches and displays record(s) in an arrayList that contains a specific
+	 * word/ object
+	 * Put try and catch here!!!!!!!!!
+	 */
+	// public static void printRows(int index, Object itemToSearch) {
+	// 	for (ArrayList<Object> row : transactionList) {
+	// 		if (row.get(index) == itemToSearch) {
+	// 			System.out.println(row);
 
-			}
+	// 		}
 
-		}
+	// 	}
 
-	}
+	// }
 
 	public static int getIndexOf(int columnIndex, Object itemToSearch) {
 		int rowIndex = -1;
@@ -176,32 +193,7 @@ public class BudgetMaster {
 
 	}
 
-	static Object[][] array = { { "S", 2, 3.0 }, { "J", 5, 6.0 }, { "K", 8, 9.0 } };
+	public void viewTransactionType(String transactionType) {
 
-	// public static void setBudget(String nameOfCategory, double amount) {
-	// for (Object[] row : array) {
-	// // Assuming the third element in the array is remaining budget
-	// if (row[0].equals(nameOfCategory)) {
-	// row[2] = (Double) row[2] - amount;
-
-	// }
-
-	// }
-
-	// }
-
-	public static void setBudget(String nameOfCategory, double amount) {
-		for (int i = 0; i < array.length; i++) {
-			if (array[i][0].equals(nameOfCategory)) {
-
-				// The i refers to the row, 2 represents the third column, i.e remainiing amount
-				// is in the third column
-				double remainingAmount = (double) array[i][2];
-				remainingAmount = remainingAmount - amount;
-				array[i][2] = remainingAmount;
-
-			}
-		}
 	}
-
 }
