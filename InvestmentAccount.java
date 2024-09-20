@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CurrentAccount {
-  private double balance;
+public class InvestmentAccount {
+    private double balance;
 
   static Scanner input = new Scanner(System.in);
 
@@ -30,9 +30,10 @@ public class CurrentAccount {
       }
 
       System.out.println("Enter the type of transaction: "
-          + "\n1. Expense "
+          + "\n1. Investment"
           + "\n2. Income"
           + "\n3. Transfer");
+          
 
           
 
