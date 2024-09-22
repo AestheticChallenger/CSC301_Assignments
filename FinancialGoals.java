@@ -1,5 +1,3 @@
-import Interfacez.AddAndSubtract;
-
 public class FinancialGoals implements AddAndSubtract {
   Calendar endDate;
   boolean isSet = false;

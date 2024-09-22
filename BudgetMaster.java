@@ -8,17 +8,15 @@ public class BudgetMaster {
 	// Array of created accounts of the user
 	static Account[] userAccounts = new Account[3];
 
-	public static void main(String[] args) throws Exception{
-		
+	public static void main(String[] args) throws Exception {
+
 		java.io.File file = new java.io.File("txtFiles/f.txt");
-		
+
 		// creates the file
 		if (file.createNewFile()) {
-		System.out.println("File created: " + file.getName());
+			System.out.println("File created: " + file.getName());
 		}
-		
-		
-		
+
 		int userChoice;
 		do {
 			DislayMenu();
@@ -67,7 +65,7 @@ public class BudgetMaster {
 	public static int UserMenuChoice() {
 		int choice;
 		do {
-			System.out.println("Your Choice (0, 1, 2, 3, 4, 5, 6):");
+			System.out.print("Your Choice (0, 1, 2, 3, 4, 5, 6): ");
 			choice = input.nextInt();
 		} while (choice > 6);
 		return choice;
@@ -85,26 +83,66 @@ public class BudgetMaster {
 		while (setLoopCondition) {
 			try {
 				selectedAccount = chooseAccount();
-				
-				switch (selectedAccount) {
-					case "currentAccount":
-						CurrentAccount.main(null);
-						break;
 
-					case "savingAccount":
-						SavingsAccount.main(null);
-						break;
+				// switch (selectedAccount) {
+				// 	case "currentAccount":
+				// 		CurrentAccount.main(null);
+				// 		break;
 
-					case "investmentAccount":
-						InvestmentAccount.main(null);
-						break;
+				// 	case "savingAccount":
+				// 		SavingsAccount.main(null);
+				// 		break;
+
+				// 	case "investmentAccount":
+				// 		InvestmentAccount.main(null);
+				// 		break;
+				// }
+
+				System.out.print("Enter the amount: ");
+				double amount = input.nextDouble();
+
+				// Check if the amount is positive
+				if (amount <= 0) {
+					throw new LessThanZeroAmountFoundException();
 				}
+
+				System.out.print("\n1. Expense "
+						+ "\n2. Income"
+						+ "\n3. Transfer"
+						+ "\nEnter the type of transaction: ");
+				int choosenType = input.nextInt();
+				if (choosenType > 3 || choosenType < 1) {
+					throw new InvalidOptionSelectedException();
+				}
+
+				Budget.viewAllCategories();
+				System.out.print("Please choose the number next to the category you want to select: ");
+				int choosenCategory = input.nextInt();
+
+				// Date
+				System.out.println("Please enter the date in the following format."
+						+ "\nPlease enter the year: ");
+				int choosenYear = input.nextInt();
+
+				System.out.print("Please enter the month: ");
+				int choosenMonth = input.nextInt();
+
+				System.out.print("Please enter the day: ");
+				int choosenDay = input.nextInt();
+				Calendar date = new Calendar(choosenYear, choosenMonth, choosenDay);
+
+				// Notes
+				System.out.println("Please enter here any notes/details you wan to add: ");
+				String userNotes = input.next().trim();
+				userNotes += input.nextLine();
 
 				// Catches if the user inputed incorrect options
 			} catch (InvalidOptionSelectedException ex) {
 				System.out.println(ex.getMessage());
 
-				// Catches if the amount is positive
+			} catch (LessThanZeroAmountFoundException m) {
+				System.out.println(m.getMessage());
+
 			}
 
 		}
@@ -129,7 +167,6 @@ public class BudgetMaster {
 
 	// Mehejat's Part!!
 	public static void GenerateFinancialReports() {
-
 		// To be completed. Feel free to change the input parameters.
 	}
 
@@ -165,18 +202,19 @@ public class BudgetMaster {
 		return choosenAccount;
 	}
 
-	/** Searches and displays record(s) in an arrayList that contains a specific
+	/**
+	 * Searches and displays record(s) in an arrayList that contains a specific
 	 * word/ object
 	 * Put try and catch here!!!!!!!!!
 	 */
 	// public static void printRows(int index, Object itemToSearch) {
-	// 	for (ArrayList<Object> row : transactionList) {
-	// 		if (row.get(index) == itemToSearch) {
-	// 			System.out.println(row);
+	// for (ArrayList<Object> row : transactionList) {
+	// if (row.get(index) == itemToSearch) {
+	// System.out.println(row);
 
-	// 		}
+	// }
 
-	// 	}
+	// }
 
 	// }
 
