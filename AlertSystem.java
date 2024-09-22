@@ -1,3 +1,4 @@
+
 public interface AlertSystem {
   int firstAlert = 50;
   int secondAlert = 25;

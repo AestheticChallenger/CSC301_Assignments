@@ -1,3 +1,4 @@
+
 public interface AddAndSubtract {
   public static void addAmount(double amount) {
 
