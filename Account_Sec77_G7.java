@@ -1,8 +1,21 @@
-import Interfacess.AddAndSubtract;
 
-public class Account implements AddAndSubtract {
-  private double balance = 0;
+/**
+ * Aysha Hira 1088000
+ * Afrah Noor Salim 109111
+ * Mehejat Jamal 1090225
+ */
+
+import Interfacess.AddAndSubtract_Sec77_G7;
+
+public class Account_Sec77_G7 implements AddAndSubtract_Sec77_G7 {
+  private double balance;
   public String name;
+
+  Account_Sec77_G7(String name) {
+    this.name = name;
+    this.balance = 0;
+  }
+
 
   public String getName() {
     return name;

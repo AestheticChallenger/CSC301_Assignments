@@ -1,3 +1,10 @@
+
+/**
+ * Aysha Hira 1088000
+ * Afrah Noor Salim 109111
+ * Mehejat Jamal 1090225
+ */
+
 import java.util.*;
 
 public class Budget_Sec77_G7 extends Goal_Sec77_G7 {
