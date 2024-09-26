@@ -1,7 +1,16 @@
+import Interfacess.AddAndSubtract;
 
+public class Account implements AddAndSubtract {
+  private double balance = 0;
+  public String name;
 
-public class Account implements AddAndSubtract{
-  private double balance;
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public void addAmount(double amount) {
     this.balance = getBalance() + amount;
@@ -19,5 +28,5 @@ public class Account implements AddAndSubtract{
     return balance;
   }
 
-  
 }
+ 
