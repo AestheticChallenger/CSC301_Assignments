@@ -1,13 +1,27 @@
-public class FinancialGoals implements AddAndSubtract {
-  Calendar endDate;
+
+/**
+ * Aysha Hira 1088000
+ * Afrah Noor Salim 109111
+ * Mehejat Jamal 1090225
+ */
+
+import java.time.LocalDate;
+import Interfacess.AddAndSubtract_Sec77_G7;
+
+public class FinancialGoals_Sec77_G7 implements AddAndSubtract_Sec77_G7 {
+  LocalDate endDate;
   boolean isSet = false;
   double targetAmount = 0;
   double savedAmount = 0;
 
-  FinancialGoals(int year, int month, int day, double targetAmount) {
-    endDate = new Calendar(year, month, day); // creats an end date
+  FinancialGoals_Sec77_G7(int year, int month, int day, double targetAmount) {
+    this.endDate = LocalDate.of(year, month, day); // creats an end date
     this.isSet = true; // shows that financia goal is complete
     this.targetAmount = targetAmount; // sets the financial goal
+  }
+
+  public FinancialGoals_Sec77_G7() {
+    // TODO Auto-generated constructor stub
   }
 
   // Updates the financial goals
@@ -22,7 +36,7 @@ public class FinancialGoals implements AddAndSubtract {
     System.out.println("You have achieved "
         + Math.round((savedAmount / targetAmount) * 100) / 100 + "% of the " + targetAmount);
 
-    // Shows how much the 
+    // Shows how much the
     return "The remaining amount to complete this financial goal is: AED" + (targetAmount - savedAmount);
   }
 
